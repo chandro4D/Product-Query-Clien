@@ -1,0 +1,32 @@
+.slide {
+    color: rgb(44,44,229);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+  }
+  
+  .slide1 {
+    background-image: url(https://i.ibb.co/Mnkw97z/dominik-luckmann-Yp-Tr-Zay-Db8-Q-unsplash.jpg);
+  }
+  .slide2 {
+    background-image: url(https://i.ibb.co/Hg9W5Vp/sazzad-bin-jafor-Tpbag2-IJBMo-unsplash.jpg);
+  }
+  .slide3 {
+    background-image: url(https://i.ibb.co/0n973XW/s-m-ibrahim-1-NEJki-TTu-LU-unsplash.jpg);
+  }
+  .slide4 {
+    background-image: url(https://i.ibb.co/Hhv0bqL/rafy-noman-s0-J6-JEPHw-M-unsplash.jpg);
+  }
+  .slide5 {
+    background-image: url(https://i.ibb.co/b7nsvrB/ramon-kagie-D64sqi-YPrs-unsplash.jpg);
+  }
+  .slide6 {
+    background-image: url(https://i.ibb.co/bLTxm8H/amit-chowdhury-Xu-H9jz-SKlps-unsplash.jpg);
+  }
+  .slide7 {
+    background-image: url(https://i.ibb.co/zGNQmvD/imdadul-hussain-JBszu2-Vp-C8k-unsplash.jpg);
+  }

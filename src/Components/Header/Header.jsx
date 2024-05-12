@@ -1,0 +1,101 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProviders/AuthProviders";
+import Swal from "sweetalert2";
+
+
+const Header = () => {
+
+    const { user, logOut, signIn, googleLogin } = useContext(AuthContext);
+    console.log(user);
+    const handleSignOut = () => {
+        logOut()
+            .then(result => {
+
+                Swal.fire({
+                    icon: "success",
+                    text: "LogOut successfully!",
+
+                });
+                console.log(result.user);
+            })
+            .catch()
+    }
+
+    const links = <>
+        {
+            !user ?
+                <div className="flex ml-[400px]">
+                    <li className="mr-3"><Link to="/"> Home</Link></li>
+                    <li className="mr-3"><Link to="/queries"> Queries</Link></li>
+                    <li className="mr-3"><Link to="/login"> Login</Link></li>
+                    <li className="mr-[400px]"><Link to="/register"> Register</Link></li>
+                    <Link to="/login"><button className="btn mr-16 bg-green-600 text-xl font-medium ">LOGIN</button></Link>
+
+                </div>
+                :
+                <div className="flex ml-[150px]" >
+                    <li className="mr-2"><Link to="/"> Home</Link></li>
+                    <li className="mr-2"><Link to="/queries"> Queries</Link></li>
+                    <li className="mr-2"><Link to="/RecomendationForMe"> Recommendation For Me</Link></li>
+                    <li className="mr-2"><Link to="/myQueries"> My Queries</Link></li>
+                    <li className="mr-2"><Link to="/MyRecomendation"> My Recommendation</Link></li>
+                    <li className="mr-2"><Link to="/login"> Login</Link></li>
+                    <li className="mr-20"><Link to="/register"> Register</Link></li>
+                    <div className=" tooltip tooltip-bottom mr-5" data-tip={user.displayName || user.email}  >
+                        <img className="rounded-full w-14" src={user.photoURL || "https://web.programming-hero.com/static/media/profileImage.934e5b10.png"} />
+                    </div>
+                    <Link to=""><button onClick={handleSignOut} className="btn  bg-green-600 text-xl font-medium ">SING OUT</button></Link>
+
+                </div>
+
+        }
+
+
+    </>
+    return (
+        <div className="navbar bg-base-100">
+            <div className="ml-[50px]">
+                <img className="w-[100px] h-[100px] " src="https://i.ibb.co/M179kmX/Pngtree-creative-s-logo-4259366.png" alt="" />
+                <h1 className=" text-xl">AlterNative</h1>
+            </div>
+            <div >
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        {links}
+                    </ul>
+                </div>
+
+
+            </div>
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                    {links}
+                </ul>
+            </div>
+            {
+                user ?
+                    <div className="flex navbar-end">
+                        <div>
+
+                        </div>
+                        <div className="ml-5">
+
+                        </div>
+                    </div>
+                    :
+                    <div className="navbar-end ">
+
+                    </div>
+
+            }
+
+
+        </div>
+    );
+};
+
+export default Header;
