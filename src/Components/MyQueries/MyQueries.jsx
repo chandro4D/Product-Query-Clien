@@ -7,16 +7,16 @@ import MyQueryCard from "../MyQueryCard/MyQueryCard";
 
 const MyQueries = () => {
     const { user } = useContext(AuthContext)
-    const [queries,setQueries] = useState([])
+    const [queries, setQueries] = useState([])
 
-    useEffect (() => {
-     const getData = async () => {
-        const {data} = await axios(
-            `${import.meta.env.VITE_API_URL}/query/${user?.email}`
-        )
-        setQueries(data)
-     }
-     getData()
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios(
+                `${import.meta.env.VITE_API_URL}/query/${user?.email}`
+            )
+            setQueries(data)
+        }
+        getData()
     }, [user])
     console.log(queries)
     return (
@@ -31,12 +31,14 @@ const MyQueries = () => {
                         <Link to='/addQueries'><button className="btn bg-yellow-600 text-yellow-50 w-[200px]">Add Queries</button></Link>
                     </div>
                 </div>
+            </div >
+            <div className=" lg:grid lg:grid-cols-3 lg:mr-[80px] lg:ml-[140px] sm:grid-cols-1 sm:ml-[60px] sm:mr-[80px] mt-10 mb-10">
+                {
+                    queries.map(query => <MyQueryCard key={query._id} query={query}></MyQueryCard>)
+                }
             </div>
-            {
-                queries.map(query => <MyQueryCard key={query._id} query={query}></MyQueryCard>)
-            }
-            
-            
+
+
         </div>
     );
 };
