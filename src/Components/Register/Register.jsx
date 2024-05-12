@@ -74,27 +74,27 @@ const Register = () => {
             })
     }
     return (
-        <div className="lg:w-[500px] lg:h-[630px] sm:w-[400px] sm:h-[550px] bg-slate-400 lg:ml-[500px] sm:ml-0 mt-10 mb-10 rounded-xl">
+        <div className="lg:w-[500px] lg:h-[630px] sm:w-[400px] sm:h-[550px] bg-gray-600 lg:ml-[500px] sm:ml-0 mt-10 mb-10 rounded-xl">
 
             <div className=" pt-10">
-                <h2 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900" className="text-center text-2xl font-bold text-white mb-2">WELCOME TO AlterNative</h2>
-                <p data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" className="text-center text-xl font-semibold text-black">Register to your account </p>
+                <h2  className="text-center text-2xl font-bold text-white mb-2">WELCOME TO ALTERNATIVE</h2>
+                <p  className="text-center text-xl font-semibold text-black">Register to your account </p>
             </div>
             <form onSubmit={handleRegister} className="pt-8 lg:pl-12 sm:pl-0">
-                <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1100" className=" lg:w-[400px] sm:w-[250px] h-[50px]">
+                <div  className=" lg:w-[400px] sm:w-[250px] h-[50px]">
                     <input className="w-full h-full rounded-lg text-center" type="name" placeholder="Your Name" required name="name" />
                 </div>
                 <br />
-                <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1200" className=" lg:w-[400px] sm:w-[250px] h-[50px]">
+                <div  className=" lg:w-[400px] sm:w-[250px] h-[50px]">
                     <input className="w-full h-full rounded-lg text-center" type="email" placeholder="Your Email" required name="email" />
                 </div>
                 <br />
                 <div className="flex ">
-                    <div className="w-[400px] " data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1300">
+                    <div className="w-[400px] " >
                         <input className="text-black rounded-lg text-center w-full     h-[50px]" placeholder="password" required
                             type={showPassword ? "text" : "password"} name="password" />
                     </div>
-                    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1400" className="mt-3  ">
+                    <div  className="mt-3  ">
                         <span className="" onClick={() => { setShowPassword(!showPassword) }}>
                             {
                                 showPassword ? <FaEyeSlash className="w-10 h-5"></FaEyeSlash> : <FaEye className="w-10 h-5"></FaEye>

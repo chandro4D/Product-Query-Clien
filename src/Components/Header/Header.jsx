@@ -25,7 +25,7 @@ const Header = () => {
     const links = <>
         {
             !user ?
-                <div className="flex ml-[400px]">
+                <div className="flex ml-[350px] text-xl font-semibold">
                     <li className="mr-3"><Link to="/"> Home</Link></li>
                     <li className="mr-3"><Link to="/queries"> Queries</Link></li>
                     <li className="mr-3"><Link to="/login"> Login</Link></li>
@@ -34,14 +34,14 @@ const Header = () => {
 
                 </div>
                 :
-                <div className="flex ml-[150px]" >
-                    <li className="mr-2"><Link to="/"> Home</Link></li>
-                    <li className="mr-2"><Link to="/queries"> Queries</Link></li>
-                    <li className="mr-2"><Link to="/RecomendationForMe"> Recommendation For Me</Link></li>
-                    <li className="mr-2"><Link to="/myQueries"> My Queries</Link></li>
-                    <li className="mr-2"><Link to="/MyRecomendation"> My Recommendation</Link></li>
-                    <li className="mr-2"><Link to="/login"> Login</Link></li>
-                    <li className="mr-20"><Link to="/register"> Register</Link></li>
+                <div className="flex ml-[100px] text-lg mt-[14px] font-medium" >
+                    <li className="mr-[1px]"><Link to="/"> Home</Link></li>
+                    <li className="mr-[1px]"><Link to="/queries"> Queries</Link></li>
+                    <li className="mr-[1px]"><Link to="/RecomendationForMe"> Recommendation For Me</Link></li>
+                    <li className="mr-[1px]"><Link to="/myQueries"> My Queries</Link></li>
+                    <li className="mr-[1px]"><Link to="/MyRecomendation"> My Recommendation</Link></li>
+                    <li className="mr-[1px]"><Link to="/login"> Login</Link></li>
+                    <li className="mr-[12px]"><Link to="/register"> Register</Link></li>
                     <div className=" tooltip tooltip-bottom mr-5" data-tip={user.displayName || user.email}  >
                         <img className="rounded-full w-14" src={user.photoURL || "https://web.programming-hero.com/static/media/profileImage.934e5b10.png"} />
                     </div>
@@ -54,10 +54,10 @@ const Header = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100">
-            <div className="ml-[50px]">
+        <div className="navbar bg-violet-900 sm:w-[300px] lg:w-full mb-[50px] ">
+            <div className="ml-[15px]">
                 <img className="w-[100px] h-[100px] " src="https://i.ibb.co/M179kmX/Pngtree-creative-s-logo-4259366.png" alt="" />
-                <h1 className=" text-xl">AlterNative</h1>
+                <h1 className=" text-2xl font-bold"><span className="text-amber-500">A</span>lter<span className="text-amber-500">N</span>ative</h1>
             </div>
             <div >
                 <div className="dropdown">

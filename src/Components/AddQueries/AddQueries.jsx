@@ -58,7 +58,7 @@ const AddQueries = () => {
     }
 
     return (
-        <div className="mt-10 mb-10 ml-[190px]">
+        <div className="mt-10 mb-10 ml-[190px] bg-slate-500 w-[1120px] h-[350px] rounded-xl">
             <form onSubmit={handleAddQuery} className="pt-8 lg:pl-12 sm:pl-0">
                 <div className="flex">
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px] mr-8">

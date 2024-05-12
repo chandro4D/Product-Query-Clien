@@ -5,7 +5,7 @@ const MyQueryCard = ({ query }) => {
     return (
         <div className="card  bg-base-100 shadow-xl mb-14 lg:mr-[40px]  sm:mr-[0px]">
 
-            <figure><img  src={query.image} /></figure>
+            <figure><img className="w-[300px] h-[200px] rounded-xl"  src={query.image} /></figure>
             <div className="card-body">
 
                 <h2 className="text-center text-2xl font-bold text-amber-500">{query.ProductName}</h2>
