@@ -20,7 +20,7 @@ const Home = () => {
         }
         getData()
     }, [user])
-    console.log(queries)
+    console.log(queries);
     return (
         <div className='mt-[80px]'>
             <div>
@@ -50,8 +50,12 @@ const Home = () => {
             </div>
             <br />
             <div className=" lg:grid lg:grid-cols-3 lg:mr-[50px] lg:ml-[90px] sm:grid-cols-1 sm:ml-[60px] sm:mr-[80px] mt-10 mb-10">
+                
                 {
-                    queries.map(query => <HomeCard key={query._id} query={query}></HomeCard>)
+                    queries.map(query => <HomeCard 
+                        key={query._id} 
+                        query={query}
+                        ></HomeCard>)
                 }
             </div>
 

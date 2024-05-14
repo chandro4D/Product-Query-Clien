@@ -1,15 +1,16 @@
 // import { useLoaderData } from "react-router-dom";
 
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const Update = () => {
 
     const update = useLoaderData()
-    const { _id,QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, ImageURL } = update;
-    console.log(update.ProductBrand)
-    console.log(_id)
+    const { _id, QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, ImageURL } = update;
+
+    const { id } = useParams()
+    console.log(id)
 
     const navigate = useNavigate()
 
@@ -24,9 +25,13 @@ const Update = () => {
         const BoycottingReasonDetails = form.BoycottingReasonDetails.value;
         const updatedData = { ProductName, ProductBrand, ImageURL, QueryTitle, BoycottingReasonDetails }
         console.log(updatedData);
+        
+
+
+
 
         // send data to the server
-        fetch(`${import.meta.env.VITE_API_URL}/query/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/query/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +44,7 @@ const Update = () => {
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'success!',
-                        text: ' Tourists Sport Update Successfully',
+                        text: ' Updated Your Query Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
 
@@ -57,7 +62,7 @@ const Update = () => {
 
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px] mr-8">
 
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder='ProductBrand' required name="ProductName" />
+                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder={ProductName} required name="ProductName" />
                     </div>
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px]">
                         <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Product Brand" required name="ProductBrand" />
