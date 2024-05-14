@@ -53,7 +53,8 @@ const router = createBrowserRouter([
         {
           path: '/update/:id',
           element: <Update></Update>,
-          loader: ({params}) => fetch(`http://localhost:5000/query/${params.id}`)
+          loader: ({ params }) =>
+            fetch(`${import.meta.env.VITE_API_URL}/query/${params._id}`),
           
         }
       ]

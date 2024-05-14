@@ -1,13 +1,19 @@
+// import { useLoaderData } from "react-router-dom";
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+
 
 const Update = () => {
 
-    const newQuery = useLoaderData();
-    const {_id} = newQuery;
+    const update = useLoaderData()
+    const { _id,QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, ImageURL } = update;
+    console.log(update.ProductBrand)
+    console.log(_id)
 
-    const handleAddQuery = event => {
+    const navigate = useNavigate()
+
+    const handleUpdate = event => {
         event.preventDefault();
         const form = event.target;
 
@@ -16,49 +22,42 @@ const Update = () => {
         const ImageURL = form.ImageURL.value;
         const QueryTitle = form.QueryTitle.value;
         const BoycottingReasonDetails = form.BoycottingReasonDetails.value;
-        // const email = user.email;
-        // const name = user.displayName;
+        const updatedData = { ProductName, ProductBrand, ImageURL, QueryTitle, BoycottingReasonDetails }
+        console.log(updatedData);
 
-        // const recommendationCount = 0;
-        // const image = user.photoURL;
-        // var timestamp = Date.now();
-        // var currentDate = new Date(timestamp);
-        // var date = currentDate.toISOString().split('T')[0];
-
-        const newQuery = { /* recommendationCount, date, email, name, image*/ ProductName, ProductBrand, ImageURL, QueryTitle, BoycottingReasonDetails }
-        console.log(newQuery);
         // send data to the server
-        // fetch('http://localhost:5000/query', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newQuery)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'success!',
-        //                 text: 'Add New Query Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'OK'
+        fetch(`${import.meta.env.VITE_API_URL}/query/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: ' Tourists Sport Update Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
 
-        //             })
-        //             navigate('/')
-        //         }
+                    })
+                    navigate('/')
+                }
 
-        //     })
+            })
+
     }
     return (
         <div className="mt-10 mb-10 ml-[190px] bg-slate-500 w-[1120px] h-[350px] rounded-xl">
-            <form onSubmit={handleAddQuery} className="pt-8 lg:pl-12 sm:pl-0">
+            <form onSubmit={handleUpdate} className="pt-8 lg:pl-12 sm:pl-0">
                 <div className="flex">
 
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px] mr-8">
-                        <h2 className="text-red-400">shakhor{_id}</h2>
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Product Name" required name="ProductName" />
+
+                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder='ProductBrand' required name="ProductName" />
                     </div>
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px]">
                         <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Product Brand" required name="ProductBrand" />
@@ -80,7 +79,7 @@ const Update = () => {
                 </div>
                 <br />
                 <div className=" lg:w-[1040px] sm:w-[250px]]  h-[50px] bg-lime-400 rounded-2xl">
-                    <button className="w-full h-full text-white"> Add Query</button>
+                    <button className="w-full h-full text-white"> Update</button>
                 </div>
 
             </form>
