@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 
 const MyRecommendCard = ({ recommendOne }) => {
     const {_id, RecommendedproductName, recomenderName, RecommendedProductImage,recommenderEmail,recommendDate } = recommendOne;
-
+    const { user } = useContext(AuthContext)
     // --------------------delete-----------------------
     const navigate = useNavigate()
     const handleDelete = _id => {
@@ -20,7 +22,7 @@ const MyRecommendCard = ({ recommendOne }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`${import.meta.env.VITE_API_URL}/recommend/${_id}`, {
+                fetch(`${import.meta.env.VITE_API_URL}/recommend/${user?.email}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
