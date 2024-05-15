@@ -1,13 +1,29 @@
 // import { useContext } from "react";
 // import { AuthContext } from "../../AuthProviders/AuthProviders";
 // import Swal from "sweetalert2";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import Swal from "sweetalert2";
+import axios from "axios";
+import DetailsCard from "../DetailsCard/DetailsCard";
 
 
 const Details = () => {
+// ------------show all Recommend data -------------------
+    const [recommend, setRecommend] = useState([])
+
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios(
+                `${import.meta.env.VITE_API_URL}/recommend`
+            )
+            setRecommend(data)
+        }
+        getData()
+    }, [])
+    console.log(recommend)
+    // ---------------------------------------------------
     
      const navigate = useNavigate();
     const detail = useLoaderData();
@@ -79,6 +95,7 @@ const Details = () => {
     
     return (
         <div>
+            <h3>{recommend.length}</h3>
             <div className="w-[1200px] h-[600px] ml-[150px] mb-[150px] flex" >
                 <div className="w-[600px] h-[600px] ">
                     <div className="card  bg-base-100 shadow-xl mb-14 lg:mr-[40px]  sm:mr-[0px]">
@@ -166,6 +183,14 @@ const Details = () => {
                     </div>
 
                 </form>
+            </div>
+            <div>
+                {/* <QueriesCard key={queryOne._id} queryOne={queryOne}></QueriesCard>) */}
+               
+                    {
+                        recommend.map(recommendOne => <DetailsCard key={recommendOne._id} recommendOne ={recommendOne}></DetailsCard> )
+                    }
+              
             </div>
         </div>
     );
