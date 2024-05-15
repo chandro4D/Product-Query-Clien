@@ -95,7 +95,6 @@ const Details = () => {
     
     return (
         <div>
-            <h3>{recommend.length}</h3>
             <div className="w-[1200px] h-[600px] ml-[150px] mb-[150px] flex" >
                 <div className="w-[600px] h-[600px] ">
                     <div className="card  bg-base-100 shadow-xl mb-14 lg:mr-[40px]  sm:mr-[0px]">
