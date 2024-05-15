@@ -42,6 +42,7 @@ const AuthProviders = ({children}) => {
     // Theme Toggle--------------
     const [theme,setTheme] = useState("light");
     const toggleTheme = () => {
+        setLoading(true)
         setTheme((curr) => ( curr === "light" ? "dark" : "light"));
     }
 

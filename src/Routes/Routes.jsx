@@ -11,6 +11,7 @@ import RecomendationForMe from "../Components/RecomendationForMe/RecomendationFo
 import MyRecomendation from "../Components/MyRecomendation/MyRecomendation";
 import Update from "../Components/Update/Update";
 import Details from "../Components/Details/Details";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/myQueries',
-          element:<MyQueries></MyQueries>
+          element:<PrivateRoute><MyQueries></MyQueries></PrivateRoute>
         },
         {
           path: '/addQueries',
