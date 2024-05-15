@@ -39,6 +39,11 @@ const AuthProviders = ({children}) => {
             photoURL:PhotoURL
         })
     }
+    // Theme Toggle--------------
+    const [theme,setTheme] = useState("light");
+    const toggleTheme = () => {
+        setTheme((curr) => ( curr === "light" ? "dark" : "light"));
+    }
 
     useEffect(() =>{
         const unSubscribe = onAuthStateChanged(auth,currentUser =>{
@@ -60,7 +65,10 @@ const AuthProviders = ({children}) => {
         googleLogin,
         logOut,
         updateUserProfile,
-        setUser
+        setUser,
+        theme,
+        setTheme,
+        toggleTheme
 
     }
     return (

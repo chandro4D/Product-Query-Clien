@@ -1,3 +1,10 @@
+#light {
+  background-color:aliceblue ;
+}
+#dark {
+  background-color: black;
+}
+
 .slide {
     color: rgb(44,44,229);
     display:flex;

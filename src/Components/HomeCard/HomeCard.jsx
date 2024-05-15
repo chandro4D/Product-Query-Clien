@@ -5,7 +5,7 @@ const HomeCard = ({ query }) => {
     return (
         <div className="card  bg-base-100 shadow-xl mb-[100px] lg:mr-[40px]  sm:mr-[0px]">
 
-            <figure><img className="h-[180px] w-[300px] rounded-xl" src={query.ImageURL} /></figure>
+            <figure><img className="h-[180px] w-[300px] pt-5" src={query.ImageURL} /></figure>
             <div className="card-body ml-5">
                 <h2 className=" text-xl font-bold text-white">Product Name:{query.ProductName}</h2>
                 <div className=" ">

@@ -7,6 +7,7 @@ import axios from 'axios';
 import HomeCard from '../HomeCard/HomeCard';
 import { Link } from 'react-router-dom';
 
+
 const Home = () => {
     const { user } = useContext(AuthContext)
     const [queries, setQueries] = useState([])
@@ -22,7 +23,7 @@ const Home = () => {
     }, [user])
     console.log(queries);
     return (
-        <div className='mt-[80px]'>
+        <div  className='mt-[80px]'>
             <div>
                 <h3 className='text-4xl font-black text-pink-400 text-center'>YOU CAN DISCOVER SOME ALTERNATIVE PRODUCTS HEAR</h3>
             </div>

@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import Swal from "sweetalert2";
+import Switch from "react-switch";
 
 
 const Header = () => {
 
-    const { user, logOut, signIn, googleLogin } = useContext(AuthContext);
+    const { user, logOut, signIn, googleLogin, toggleTheme, theme } = useContext(AuthContext);
     console.log(user);
     const handleSignOut = () => {
         logOut()
@@ -27,9 +28,15 @@ const Header = () => {
             !user ?
                 <div className="flex ml-[350px] text-xl font-semibold">
                     <li className="mr-3"><Link to="/"> Home</Link></li>
+
                     <li className="mr-3"><Link to="/queries"> Queries</Link></li>
+
                     <li className="mr-3"><Link to="/login"> Login</Link></li>
-                    <li className="mr-[400px]"><Link to="/register"> Register</Link></li>
+                    <li className="mr-[320px]"><Link to="/register"> Register</Link></li>
+                    <div className="mt-3 mr-2">
+                        < Switch onChange={toggleTheme} checked={theme === "dark"} />
+                    </div>
+
                     <Link to="/login"><button className="btn mr-16 bg-green-600 text-xl font-medium ">LOGIN</button></Link>
 
                 </div>
@@ -44,6 +51,9 @@ const Header = () => {
                     <li className="mr-[12px]"><Link to="/register"> Register</Link></li>
                     <div className=" tooltip tooltip-bottom mr-5" data-tip={user.displayName || user.email}  >
                         <img className="rounded-full w-14" src={user.photoURL || "https://web.programming-hero.com/static/media/profileImage.934e5b10.png"} />
+                    </div>
+                    <div className="mt-3 mr-2 ">
+                        < Switch onChange={toggleTheme} checked={theme === "dark"} />
                     </div>
                     <Link to=""><button onClick={handleSignOut} className="btn  bg-green-600 text-xl font-medium ">SING OUT</button></Link>
 

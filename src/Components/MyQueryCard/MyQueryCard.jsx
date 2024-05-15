@@ -38,7 +38,7 @@ const MyQueryCard = ({ query }) => {
     return (
         <div className="card  bg-base-100 shadow-xl mb-14 lg:mr-[40px]  sm:mr-[0px]">
 
-            <figure><img className="w-[300px] h-[200px] rounded-xl" src={query.ImageURL} /></figure>
+            <figure><img className="w-[300px] h-[200px]  pt-5" src={query.ImageURL} /></figure>
             <div className="card-body">
 
                 <h2 className="ml-5 text-xl font-bold text-white">Product Name :{query.ProductName}</h2>
@@ -60,7 +60,7 @@ const MyQueryCard = ({ query }) => {
 
                 <div className="card-actions justify-center flex mb-2">
                     <Link><button className="btn bg-green-400 w-[100px] text-white">View Details</button></Link>
-                    <Link to={`/update/${query._id}`}><button className="btn bg-amber-300 text-white">Update</button></Link>
+                    <Link to={`/update/${_id}`}><button className="btn bg-amber-300 text-white">Update</button></Link>
                     <button
                         onClick={() => handleDelete(_id)}
                         className="btn bg-red-400 w-[80px] text-white">Delete</button>

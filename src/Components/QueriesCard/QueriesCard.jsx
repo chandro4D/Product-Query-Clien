@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 
 const QueriesCard = ({ queryOne }) => {
-    const { QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, name, date, image, ImageURL, recommendationCount } = queryOne;
+    const { QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, name, date, image, ImageURL, recommendationCount,_id } = queryOne;
     return (
         <div className="card  bg-base-100 shadow-xl mb-[100px] lg:mr-[40px]  sm:mr-[0px]">
 
-            <figure><img className="w-[300px] h-[150px] rounded-xl" src={queryOne.ImageURL} /></figure>
+            <figure><img className="w-[300px] h-[150px]  pt-5" src={queryOne.ImageURL} /></figure>
             <div className="card-body">
 
                 <h2 className=" text-xl font-bold text-white">Product Name :{queryOne.ProductName}</h2>
@@ -41,7 +41,7 @@ const QueriesCard = ({ queryOne }) => {
                 </div>
                 
                 <div className="card-actions justify-center  ">
-                    <Link><button className="btn bg-green-400 text-white">Recommend</button></Link>
+                    <Link to={`/details/${_id}`}><button className="btn bg-green-400 text-white">Recommend</button></Link>
                 </div>
                 <div className="">
                     <h2 className="text-center text-xl font-medium text-white">Date:{queryOne.date}</h2>

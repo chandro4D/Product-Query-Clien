@@ -10,6 +10,7 @@ import Queries from "../Components/Queries/Queries";
 import RecomendationForMe from "../Components/RecomendationForMe/RecomendationForMe";
 import MyRecomendation from "../Components/MyRecomendation/MyRecomendation";
 import Update from "../Components/Update/Update";
+import Details from "../Components/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -54,8 +55,14 @@ const router = createBrowserRouter([
           path: '/update/:id',
           element: <Update></Update>,
           loader: ({ params }) =>
-            fetch(`${import.meta.env.VITE_API_URL}/query/${params._id}`),
+            fetch(`${import.meta.env.VITE_API_URL}/query/${params.id}`),
           
+        },
+        {
+          path: '/details/:id',
+          element:<Details></Details>,
+          loader: ({ params }) =>
+            fetch(`${import.meta.env.VITE_API_URL}/query/${params.id}`)
         }
       ]
     },
