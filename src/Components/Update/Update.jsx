@@ -6,9 +6,9 @@ import Swal from "sweetalert2";
 
 const Update = () => {
 
-    const update = useLoaderData()
-    const { _id, QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, ImageURL } = update;
-
+    const data = useLoaderData()
+    const { _id, QueryTitle, BoycottingReasonDetails, ProductBrand, ProductName, ImageURL } = data;
+    console.log(data);
     const { id } = useParams()
     console.log(id)
 
@@ -62,25 +62,25 @@ const Update = () => {
 
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px] mr-8">
 
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder={ProductName} required name="ProductName" />
+                        <input className="w-full h-full rounded-lg text-center" type="text" defaultValue={ProductName} placeholder="ProductName" required name="ProductName" />
                     </div>
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px]">
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Product Brand" required name="ProductBrand" />
+                        <input className="w-full h-full rounded-lg text-center" type="text" defaultValue={ProductBrand} placeholder="Product Brand" required name="ProductBrand" />
                     </div>
                 </div>
                 <br />
                 <div className="flex">
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px] mr-8">
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Product Image-URL" required name="ImageURL" />
+                        <input className="w-full h-full rounded-lg text-center" type="text" defaultValue={ImageURL} placeholder="Product Image-URL" required name="ImageURL" />
                     </div>
                     <div className=" lg:w-[500px] sm:w-[250px] h-[50px]">
-                        <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Query Title" required name="QueryTitle" />
+                        <input className="w-full h-full rounded-lg text-center" type="text" defaultValue={QueryTitle} placeholder="Query Title" required name="QueryTitle" />
                     </div>
                 </div>
 
                 <br />
                 <div className=" lg:w-[600px] sm:w-[250px] h-[50px] ml-[200px]">
-                    <input className="w-full h-full rounded-lg text-center" type="text" placeholder="Boycotting Reason Details" required name="BoycottingReasonDetails" />
+                    <input className="w-full h-full rounded-lg text-center" type="text" defaultValue={BoycottingReasonDetails} placeholder="Boycotting Reason Details" required name="BoycottingReasonDetails" />
                 </div>
                 <br />
                 <div className=" lg:w-[1040px] sm:w-[250px]]  h-[50px] bg-lime-400 rounded-2xl">

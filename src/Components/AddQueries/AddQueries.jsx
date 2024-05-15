@@ -33,7 +33,7 @@ const AddQueries = () => {
         const newQuery = { recommendationCount, date, email, name, image, ProductName, ProductBrand, ImageURL, QueryTitle, BoycottingReasonDetails }
         console.log(newQuery);
         // send data to the server
-        fetch('http://localhost:5000/query', {
+        fetch(`${import.meta.env.VITE_API_URL}/query`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

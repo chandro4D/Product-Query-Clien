@@ -12,7 +12,7 @@ const MyQueries = () => {
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios(
-                `${import.meta.env.VITE_API_URL}/query/${user?.email}`
+                `${import.meta.env.VITE_API_URL}/queries/${user?.email}`
             )
             setQueries(data)
         }
