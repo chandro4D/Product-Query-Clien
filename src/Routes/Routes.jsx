@@ -38,19 +38,19 @@ const router = createBrowserRouter([
         },
         {
           path: '/addQueries',
-          element: <AddQueries></AddQueries>
+          element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
         },
         {
           path:'/queries',
-          element: <Queries></Queries>
+          element: <PrivateRoute><Queries></Queries></PrivateRoute>
         },
         {
           path:'/RecomendationForMe',
-          element: <RecomendationForMe></RecomendationForMe>
+          element:<PrivateRoute> <RecomendationForMe></RecomendationForMe></PrivateRoute>
         },
         {
           path: '/MyRecomendation',
-          element: <MyRecomendation></MyRecomendation>
+          element: <PrivateRoute><MyRecomendation></MyRecomendation></PrivateRoute>
         },
         {
           path: '/update/:id',
