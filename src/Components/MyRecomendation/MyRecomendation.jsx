@@ -21,11 +21,21 @@ const MyRecomendation = () => {
     console.log(myRecommend)
     return (
         <div className="mb-[60px]">
-            
-           
-            {
-                myRecommend.map(recommendOne => <MyRecommendCard key={recommendOne._id} recommendOne={recommendOne}></MyRecommendCard>)
-            }
+            {myRecommend.length === 0 ? (
+                <div className="mb-[40px]">
+                    <h2 className="text-center text-pink-500 text-5xl font-bold">NO ONE HAS RECOMMEND YOUR QUERY YET !!</h2>
+                </div>
+            )
+                :
+                (
+                    <div>
+                        {
+                            myRecommend.map(recommendOne => <MyRecommendCard key={recommendOne._id} recommendOne={recommendOne}></MyRecommendCard>)
+                        }
+                    </div>
+                )}
+
+
         </div>
     );
 };

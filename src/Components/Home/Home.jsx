@@ -23,7 +23,7 @@ const Home = () => {
     }, [user])
     console.log(queries);
     return (
-        <div  className='mt-[80px]'>
+        <div className='mt-[80px]'>
             <div>
                 <h3 className='text-4xl font-black text-pink-400 text-center'>YOU CAN DISCOVER SOME ALTERNATIVE PRODUCTS HEAR</h3>
             </div>
@@ -51,14 +51,47 @@ const Home = () => {
             </div>
             <br />
             <div className=" lg:grid lg:grid-cols-3 lg:mr-[50px] lg:ml-[90px] sm:grid-cols-1 sm:ml-[60px] sm:mr-[80px] mt-10 mb-10">
-                
+
                 {
-                    queries.map(query => <HomeCard 
-                        key={query._id} 
+                    queries.map(query => <HomeCard
+                        key={query._id}
                         query={query}
-                        ></HomeCard>)
+                    ></HomeCard>)
                 }
             </div>
+            <div><h1 className='text-center text-pink-500 text-4xl font-bold'>SOME FREQUENTLY ASKED QUESTION</h1></div>
+            <br />
+            <div className="join join-vertical ml-[230px] w-[1000px] mb-[50px]">
+                <div className="collapse collapse-arrow join-item border border-base-300">
+                    <input type="radio" name="my-accordion-4" defaultChecked />
+                    <div className="collapse-title text-xl font-medium">
+                        What Kind Of Web Is This ?
+                    </div>
+                    <div className="collapse-content text-pink-500 text-xl">
+                        <p>It is an alternative product search web.</p>
+                    </div>
+                </div>
+                <div className="collapse collapse-arrow join-item border border-base-300">
+                    <input type="radio" name="my-accordion-4" />
+                    <div className="collapse-title text-xl font-medium">
+                        What can be done on this website ?
+                    </div>
+                    <div className="collapse-content">
+                        <p className='text-pink-500 text-xl'>Hear you will find alternative products . You can also add if you want</p>
+                    </div>
+                </div>
+                <div className="collapse collapse-arrow join-item border border-base-300">
+                    <input type="radio" name="my-accordion-4" />
+                    <div className="collapse-title text-xl font-medium">
+                        Can any specific product be recommended hear ?
+                    </div>
+                    <div className="collapse-content">
+                        <p className='text-pink-500 text-xl'>Yes,You can recommended specific product hear also .</p>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
     );
